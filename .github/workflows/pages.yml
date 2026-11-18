@@ -37,6 +37,22 @@ jobs:
           done
           find GameBuddy -type f \( -name '*.mp3' -o -name '*.wav' \) -delete
           python -m pygbag --build GameBuddy/main.py
+      - name: Fix BrowserFS runtime URL
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          page = Path("GameBuddy/build/web/index.html")
+          html, replacements = re.subn(
+              r'<script src="[^"]*/browserfs\.min\.js"></script>',
+              '<script src="https://cdn.jsdelivr.net/npm/browserfs@1.4.3/dist/browserfs.min.js"></script>',
+              page.read_text(encoding="utf-8"),
+          )
+          if replacements != 1:
+              raise SystemExit(f"Expected one BrowserFS script tag, found {replacements}")
+          page.write_text(html, encoding="utf-8")
+          PY
       - uses: actions/upload-pages-artifact@v3
         with:
           path: GameBuddy/build/web
