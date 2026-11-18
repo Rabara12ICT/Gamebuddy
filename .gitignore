@@ -8,4 +8,5 @@ gamebuddy_saves.json
 venv/
 dist/
 build/
+GameBuddy/build/
 *.spec

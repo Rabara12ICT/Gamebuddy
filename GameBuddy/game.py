@@ -5,7 +5,7 @@ Resizable desktop window; touchscreen play is designed for landscape orientation
 Dev shortcuts (separate from normal play):  python game.py --dev
   F2 hub | F3 +100 XP | F4 complete next quest | F5 east island | F6 fall test
 """
-import pygame, json, os, sys, random, math, threading, hashlib, hmac, secrets
+import asyncio, pygame, json, os, sys, random, math, threading, hashlib, hmac, secrets, time
 from types import SimpleNamespace as NS
 
 pygame.init()
@@ -15,6 +15,7 @@ except Exception:
     pygame.mixer = None
 
 W, H = 1000, 600
+WEB = sys.platform == "emscripten"
 display = pygame.display.set_mode((W, H), pygame.RESIZABLE)
 pygame.display.set_caption("Game Buddy: Code Quest")
 scr = pygame.Surface((W, H))
@@ -29,11 +30,11 @@ LOGIN_TITLE_IMAGE = pygame.image.load(
 
 def find_login_music():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    preferred = [
+    preferred = ([os.path.join(base_dir, "login_music.ogg")] if WEB else [
         os.path.join(base_dir, "login_music.mp3"),
         os.path.join(base_dir, "login.mp3"),
         os.path.join(base_dir, "bgm.mp3"),
-    ]
+    ])
     for path in preferred:
         if os.path.isfile(path):
             return path
@@ -49,9 +50,9 @@ def find_login_music():
         if lower.endswith((".mp3", ".wav", ".ogg", ".m4a", ".aac", ".flac")):
             candidates.append(full_path)
     for path in candidates:
-        if path.lower().endswith(".mp3"):
+        if path.lower().endswith(".ogg" if WEB else ".mp3"):
             return path
-    return candidates[0] if candidates else None
+    return candidates[0] if candidates and not WEB else None
 
 LOGIN_MUSIC_PATH = find_login_music()
 CURRENT_MUSIC_PATH = None
@@ -67,21 +68,22 @@ if pygame.mixer is not None and LOGIN_MUSIC_PATH:
         LOGIN_MUSIC_PATH = None
 
 PARKOUR_MUSIC_PATH = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)), "parkour sounds.mp3")
+    os.path.dirname(os.path.abspath(__file__)),
+    "parkour sounds.ogg" if WEB else "parkour sounds.mp3")
 if not os.path.isfile(PARKOUR_MUSIC_PATH):
     PARKOUR_MUSIC_PATH = None
 
 SOUND_EFFECT_FILES = {
-    "jump": "mixkit-player-jumping-in-a-video-game-2043.wav",
-    "fall": "mixkit-player-losing-or-failing-2042.wav",
-    "crystal": "mixkit-winning-a-coin-video-game-2069.wav",
+    "jump": "mixkit-player-jumping-in-a-video-game-2043.ogg" if WEB else "mixkit-player-jumping-in-a-video-game-2043.wav",
+    "fall": "mixkit-player-losing-or-failing-2042.ogg" if WEB else "mixkit-player-losing-or-failing-2042.wav",
+    "crystal": "mixkit-winning-a-coin-video-game-2069.ogg" if WEB else "mixkit-winning-a-coin-video-game-2069.wav",
 }
 BOSS_DEFEAT_SOUND_FILES = {
-    "Python": "PYTHON BOSS.mp3",
-    "Java": "JAVA BOSS.mp3",
-    "JavaScript": "JAVA SCRIPT BOSS.mp3",
-    "HTML": "HTML.mp3",
-    "CSS": "CSS.mp3",
+    "Python": "PYTHON BOSS.ogg" if WEB else "PYTHON BOSS.mp3",
+    "Java": "JAVA BOSS.ogg" if WEB else "JAVA BOSS.mp3",
+    "JavaScript": "JAVA SCRIPT BOSS.ogg" if WEB else "JAVA SCRIPT BOSS.mp3",
+    "HTML": "HTML.ogg" if WEB else "HTML.mp3",
+    "CSS": "CSS.ogg" if WEB else "CSS.mp3",
 }
 SOUND_EFFECTS = {}
 BOSS_DEFEAT_SOUNDS = {}
@@ -871,6 +873,10 @@ def set_text_input(active):
         pygame.key.stop_text_input()
 
 def load_all():
+    if WEB:
+        import platform
+        saved = platform.window.localStorage.getItem("gamebuddy_saves")
+        return json.loads(str(saved)) if saved is not None else {}
     try:
         with open(SAVE) as f: return json.load(f)
     except Exception: return {}
@@ -1085,6 +1091,7 @@ def login_layout():
         "reveal": reveal,
         "mode": pygame.Rect(content_x, card.y + 293, content_width, 30),
         "submit": pygame.Rect(content_x, card.y + 390, content_width, 46),
+        "guest": pygame.Rect(content_x, card.y + 390, content_width, 46),
     }
 
 def delete_auth_characters(count=1):
@@ -1103,6 +1110,10 @@ def update_auth_backspace(dt):
 def save():
     if not G.name: return
     d = load_all(); d[G.name] = G.S
+    if WEB:
+        import platform
+        platform.window.localStorage.setItem("gamebuddy_saves", json.dumps(d))
+        return
     try:
         with open(SAVE, "w") as f: json.dump(d, f)
     except Exception: pass
@@ -1184,7 +1195,34 @@ def run_tests(src, fn, tests):
                 r = f(*a)
                 if r != e: res["m"] = "%s%s returned %r, expected %r" % (fn, a, r, e); return
             res["ok"] = 1
-        except Exception as x: res["m"] = "%s: %s" % (type(x).__name__, x)
+        except Exception as x:
+            if WEB and isinstance(x, TimeoutError):
+                res["timeout"] = True
+            else:
+                res["m"] = "%s: %s" % (type(x).__name__, x)
+    if WEB:
+        deadline = time.monotonic() + 2.5
+        previous_trace = sys.gettrace()
+        timed_out = [False]
+
+        def trace_line(frame, event, arg):
+            if timed_out[0]:
+                return None
+            if event == "line" and time.monotonic() >= deadline:
+                timed_out[0] = True
+                raise TimeoutError
+            return trace_line
+
+        sys.settrace(trace_line)
+        try:
+            work()
+        finally:
+            sys.settrace(previous_trace)
+        if res.get("timeout"):
+            return False, "Timed out - check for an infinite loop."
+        if res.get("ok"):
+            return True, "All tests passed."
+        return False, res.get("m", "A test failed.")
     t = threading.Thread(target=work, daemon=True); t.start(); t.join(2.5)
     if t.is_alive(): return False, "Timed out - check for an infinite loop."
     if res.get("ok"):
@@ -3291,9 +3329,10 @@ if pygame.mixer is not None:
     except (pygame.error, AttributeError):
         STORY_VOICE_CHANNEL = pygame.mixer.Channel(0)
     for scene_index in range(1, len(INTRO_SCENES) + 1):
+        voice_extension = "ogg" if WEB else "mp3"
         voice_path = os.path.join(
             os.path.dirname(os.path.abspath(__file__)),
-            "scene %d.mp3" % scene_index)
+            "scene %d.%s" % (scene_index, voice_extension))
         try:
             STORY_VOICE_SOUNDS.append(
                 pygame.mixer.Sound(voice_path) if os.path.isfile(voice_path)
@@ -4782,11 +4821,22 @@ def login_screen():
     pygame.draw.rect(scr, GOLD, r, 2, 16)
     content_x = layout["username"].x
     content_width = layout["username"].w
-    title = "Create your account" if G.auth_mode == "register" else "Welcome back"
-    subtitle = ("Save your progress and keep playing." if G.auth_mode == "register"
+    title = "Welcome, Player!" if WEB else (
+        "Create your account" if G.auth_mode == "register" else "Welcome back")
+    subtitle = ("Play now. Your progress is saved in this browser." if WEB else
+                "Save your progress and keep playing." if G.auth_mode == "register"
                 else "Sign in to continue your coding adventure.")
     text(title, content_x, r.y + 25, WHITE, fnt(25, True))
     text(subtitle, content_x, r.y + 61, (206, 232, 214), FS)
+
+    if WEB:
+        button = layout["guest"]
+        pygame.draw.rect(scr, (62, 116, 96), button, 0, 8)
+        pygame.draw.rect(scr, CYAN, button, 2, 8)
+        rendered = FS.render("PLAY NOW", True, WHITE)
+        scr.blit(rendered, (button.centerx - rendered.get_width() // 2,
+                            button.centery - rendered.get_height() // 2))
+        return
 
     user_rect = layout["username"]
     text("Username", user_rect.x, user_rect.y - 24, WHITE, FS)
@@ -5793,6 +5843,8 @@ def handle_pointer(pos, touch=False):
         elif layout["mode"].collidepoint(point):
             G.auth_mode = "register" if G.auth_mode == "login" else "login"
             G.auth_error = ""
+        elif WEB and layout["guest"].collidepoint(point):
+            start("Guest")
         elif layout["submit"].collidepoint(point):
             set_text_input(False)
             authenticate(G.auth_mode == "register")
@@ -6110,7 +6162,10 @@ def handle_key(e):
         elif e.key == pygame.K_RETURN:
             G.auth_backspace_held = False
             set_text_input(False)
-            authenticate(G.auth_mode == "register")
+            if WEB:
+                start("Guest")
+            else:
+                authenticate(G.auth_mode == "register")
         elif e.key == pygame.K_BACKSPACE:
             if not G.auth_backspace_held:
                 delete_auth_characters()
@@ -6185,10 +6240,11 @@ def handle_key(e):
         if e.key == pygame.K_ESCAPE: G.state = "home"
         elif DEV: dev_key(e)
 
-def main():
+async def main():
     global display
     while True:
         dt = min(.05, clk.tick(60) / 1000); G.t += dt; G.tt = max(0, G.tt - dt)
+        await asyncio.sleep(0)
         if G.M.get("k") == "build":
             G.M["elapsed"] += dt
         elif G.M.get("k") == "story_intro":
@@ -6328,7 +6384,7 @@ SPRITE_ALPHA_DATA = "iVBORw0KGgoAAAANSUhEUgAABAAAAAIICAAAAADV9cMIAAEAAElEQVR42ux
 
 if __name__ == "__main__":
     try:
-        main()
+        asyncio.run(main())
     except Exception as error:
         import traceback
         crash_log = os.path.join(
