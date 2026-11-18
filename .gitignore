@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+
+gamebuddy_accounts.json
+gamebuddy_saves.json
+
+.venv/
+venv/
+dist/
+build/
+*.spec

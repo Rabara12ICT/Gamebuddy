@@ -1,0 +1,325 @@
+{
+  "story": "Game Buddy and Byte discover that the Virus King has scrambled the Kingdom's Core. Restore its signal by learning code, crossing the Kingdom's portal courses, and answering each portal quiz.",
+  "languages": {
+    "Python": {
+      "theme": "Jungle Temple",
+      "color": [94, 225, 255],
+      "topics": [
+        {
+          "topic": "Introduction",
+          "story": "Byte finds the first scrambled beacon. Its instructions are jumbled, so the Guardian must learn Python's basic writing rules.",
+          "lesson": "Python is a popular programming language. It was created by Guido van Rossum, and released in 1991.\nIt is used for:\n• web development (server-side),\n• software development,\n• mathematics,\n• system scripting.\n\nExample:",
+          "examples": ["print(\"Hello, World!\")"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which Python line displays a message?", "options": ["say(\"Hello\")", "print(\"Hello\")", "echo(\"Hello\")", "show \"Hello\""], "answers": ["print(\"Hello\")"], "case_sensitive": true, "explanation": "print() is Python's built-in function for displaying a value."},
+            {"type": "fill_blank", "prompt": "Complete the call: ____ (\"Beacon on\")", "bank": ["print", "echo", "say", "display"], "answers": ["print"], "case_sensitive": true, "explanation": "Python uses print() to display text."},
+            {"type": "typing", "prompt": "Type one Python line that prints the word Ready.", "choices": ["print(\"Ready\")", "echo(\"Ready\")", "print(Ready)", "say(\"Ready\")"], "answers": ["print(\"Ready\")", "print('Ready')"], "case_sensitive": true, "explanation": "print() displays the quoted string. Either quote style is valid."}
+          ]
+        },
+        {
+          "topic": "Operators",
+          "story": "The beacon needs the Guardian's name to identify its rescuer. Byte explains how Python variables hold information.",
+          "lesson": "Operators are used to perform operations on variables and values.\nIn the example below, we use the + operator to add together two values:\n\nExample:\nprint(10 + 5)\n\nAlthough the + operator is often used to add together two values, like in the example above, it can also be used to add together a variable and a value, or two variables:",
+          "examples": ["sum1 = 100 + 50       # 150 (100 + 50)\nsum2 = sum1 + 250     # 350 (100 + 250)\nsum3 = sum2 + sum2    # 700 (350 + 350)"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which operator assigns a value to a Python variable?", "options": ["=", "==", ":", "->"], "answers": ["="], "case_sensitive": true, "explanation": "= assigns a value; == compares two values."},
+            {"type": "fill_blank", "prompt": "Set score to 5: score ____ 5", "bank": ["=", "==", ":", "equals"], "answers": ["="], "case_sensitive": true, "explanation": "Use = to assign 5 to score."},
+            {"type": "typing", "prompt": "Write one Python assignment that stores the number 3 in lives.", "choices": ["lives = 3", "lives == 3", "3 = lives", "lives: 3"], "answers": ["lives = 3"], "case_sensitive": true, "explanation": "The assignment binds the name lives to the integer 3."}
+          ]
+        },
+        {
+          "topic": "Casting",
+          "story": "A message from Byte is trapped in the beacon. The Guardian learns that strings are text values.",
+          "lesson": "There may be times when you want to specify a type onto a variable. This can be done with casting. Python is an object-oriented language, and as such it uses classes to define data types, including its primitive types.\nCasting in python is therefore done using constructor functions:\n• int() - constructs an integer number from an integer literal, a float literal (by removing all decimals), or a string literal (providing the string represents a whole number)\n• float() - constructs a float number from an integer literal, a float literal or a string literal (providing the string represents a float or an integer)\n• str() - constructs a string from a wide variety of data types, including strings, integer literals and float literals\n\nExample:",
+          "examples": ["x = int(1)    # x will be 1\ny = int(2.8)  # y will be 2\nz = int(\"3\")  # z will be 3\n\nx = float(1)    # x will be 1.0\ny = float(2.8)  # y will be 2.8\nz = float(\"3\")  # z will be 3.0\nw = float(\"4.2\") # w will be 4.2\n\nx = str(\"s1\")  # x will be 's1'\ny = str(2)     # y will be '2'\nz = str(3.0)   # z will be '3.0'"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which value is a Python string?", "options": ["42", "\"42\"", "True", "None"], "answers": ["\"42\""], "case_sensitive": true, "explanation": "Quotation marks make 42 text rather than a number."},
+            {"type": "fill_blank", "prompt": "Assign the Python text Hi to message: message = ____", "bank": ["\"Hi\"", "'Hi'", "Hi", "0"], "answers": ["\"Hi\"", "'Hi'"], "case_sensitive": true, "explanation": "Matching quotation marks surround a string. Either single or double quotes are valid."},
+            {"type": "typing", "prompt": "Type a Python assignment that stores the text code in word.", "choices": ["word = \"code\"", "word == \"code\"", "word = code", "word: \"code\""], "answers": ["word = \"code\"", "word = 'code'"], "case_sensitive": true, "explanation": "The variable word is assigned a quoted string."}
+          ]
+        },
+        {
+          "topic": "String",
+          "story": "The beacon asks whether the Core is safe. Byte introduces Python's true-or-false values.",
+          "lesson": "Strings in python are surrounded by either single quotation marks, or double quotation marks.\nStrings in python are surrounded by either single quotation marks, or double quotation marks.\n'hello' is the same as \"hello\".\nYou can display a string literal with the print() function:\nYou can display a string literal with the print() function:\n\nExample:",
+          "examples": ["print(\"Hello\")\nprint('Hello')\n\nprint(\"It's alright\")\nprint('He is called \"Johnny\"')\nprint(\"He is called 'Johnny'\")"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which is Python's true Boolean value?", "options": ["true", "TRUE", "True", "yes"], "answers": ["True"], "case_sensitive": true, "explanation": "Python spells the Boolean value with a capital T: True."},
+            {"type": "fill_blank", "prompt": "The beacon is ready: ready = ____", "bank": ["True", "False", "true", "ready"], "answers": ["True"], "case_sensitive": true, "explanation": "True means the condition is satisfied."},
+            {"type": "typing", "prompt": "Type a Python assignment that sets active to False.", "choices": ["active = False", "active = false", "active == False", "active = 0"], "answers": ["active = False"], "case_sensitive": true, "explanation": "False is Python's Boolean value for an inactive condition."}
+          ]
+        },
+        {
+          "topic": "Data Types",
+          "story": "The last switch works only when the signal is clear. The Guardian uses a condition to choose the right response.",
+          "lesson": "In programming, data type is an important concept.\n\nVariables can store data of different types, and different types can do different things.\n\nPython has the following data types built-in by default, in these categories:\n\nText Type:          str\n\nNumeric Types:      int, float, complex\n\nSequence Types:     list, tuple, range\n\nMapping Type:       dict\n\nSet Types:          set, frozenset\n\nBoolean Type:       bool\n\nBinary Types:       bytes, bytearray, memoryview\n\nNone Type:          NoneType\n\nExample:",
+          "examples": ["x = \"Hello World\"        str\nx = 20                   int\nx = 20.5                 float\nx = 1j                   complex\nx = [\"apple\", \"banana\", \"cherry\"]  list\nx = (\"apple\", \"banana\", \"cherry\")  tuple\nx = range(6)             range\nx = {\"name\" : \"John\", \"age\" : 36}  dict\nx = {\"apple\", \"banana\", \"cherry\"}  set\nx = frozenset((\"apple\", \"banana\", \"cherry\"))  frozenset\nx = True                 bool"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which keyword begins a Python conditional?", "options": ["when", "if", "check", "then"], "answers": ["if"], "case_sensitive": true, "explanation": "Python uses if followed by a condition and colon."},
+            {"type": "fill_blank", "prompt": "if signal_ok____\n    print(\"Go\")", "bank": [":", ";", "{", "then"], "answers": [":"], "case_sensitive": true, "explanation": "A colon begins the indented body of a Python if statement."},
+            {"type": "typing", "prompt": "Type the Python line that begins the alternative branch.", "choices": ["else:", "otherwise:", "elif:", "else;"], "answers": ["else:"], "case_sensitive": true, "explanation": "else: marks the alternative branch when the if condition is false."}
+          ]
+        }
+      ]
+    },
+    "Java": {
+      "theme": "Island Research Lab",
+      "color": [255, 154, 60],
+      "topics": [
+        {
+          "topic": "Introduction",
+          "story": "Byte discovers the Java beacon. Its instructions need careful punctuation before the signal can return.",
+          "lesson": "What is Java?\nJava is a popular and powerful programming language, created in 1995.\nIt is used by Oracle, and more than 3 billion devices run Java.\nIt is used for:\n• Mobile applications (specially Android apps)\n• Desktop applications\n• Web applications\n• Web servers and application servers\n• Games\n• Database connection\n• And much more!",
+          "examples": ["public class Main {\n    public static void main(String[] args) {\n        String name = \"Clarence\";\n        System.out.println(\"Hello \" + name);\n    }\n}", "Output: Hello Clarence"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Who created Java?", "options": ["James Gosling", "Guido van Rossum", "Brendan Eich", "Bjarne Stroustrup"], "answers": ["James Gosling"], "case_sensitive": true, "explanation": "James Gosling led the team that created Java, first released in 1995."},
+            {"type": "fill_blank", "prompt": "Java was first released in ____.", "bank": ["1995", "1985", "2005", "2015"], "answers": ["1995"], "case_sensitive": true, "explanation": "Java was first released in 1995."},
+            {"type": "typing", "prompt": "Type a Java statement that prints Hi.", "choices": ["System.out.println(\"Hi\");", "System.out.print(\"Hi\")", "print(\"Hi\");", "System.out.println(Hi);"], "answers": ["System.out.println(\"Hi\");"], "case_sensitive": true, "explanation": "System.out.println prints the text and ends the Java statement."}
+          ]
+        },
+        {
+          "topic": "Variables",
+          "story": "The Java beacon needs to remember the Guardian's lives. Byte shows how Java names and types values.",
+          "lesson": "Variables are containers for storing data values.\nIn Java, there are different types of variables, for example:\n• String - stores text, such as \"Hello\". String values are surrounded by double quotes\n• int - stores integers (whole numbers), without decimals, such as 123 or -123\n• float - stores floating point numbers, with decimals, such as 19.99 or -19.99\n• char - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes\n• boolean - stores values with two states: true or false",
+          "examples": ["int myNum;\nmyNum = 15;\nSystem.out.println(myNum);"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which Java type commonly stores a whole number?", "options": ["int", "String", "boolean", "void"], "answers": ["int"], "case_sensitive": true, "explanation": "int is used for integer values."},
+            {"type": "fill_blank", "prompt": "____ price = 19.99f;", "bank": ["float", "int", "char", "boolean"], "answers": ["float"], "case_sensitive": true, "explanation": "float stores decimal numbers in Java; the f marks this value as a float."},
+            {"type": "typing", "prompt": "Declare a String variable named message with the text Hi.", "choices": ["String message = \"Hi\";", "string message = \"Hi\";", "String message == \"Hi\";", "message = \"Hi\";"], "answers": ["String message = \"Hi\";"], "case_sensitive": true, "explanation": "A declaration gives the type and name, then assigns a quoted value with =."}
+          ]
+        },
+        {
+          "topic": "Strings",
+          "story": "A text clue from Byte is locked in the Java beacon. The Guardian learns how Java stores words.",
+          "lesson": "Strings are used for storing text.\nA String variable contains a collection of characters surrounded by double quotes (\"\").\nCreate a variable of type String and assign it a value:",
+          "examples": ["String greeting = \"Hello\";"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which Java type stores text?", "options": ["String", "int", "boolean", "charOnly"], "answers": ["String"], "case_sensitive": true, "explanation": "String represents a sequence of text characters in Java."},
+            {"type": "fill_blank", "prompt": "____ name = \"Byte\";", "bank": ["String", "string", "int", "text"], "answers": ["String"], "case_sensitive": true, "explanation": "Java uses the capitalized String type for text."},
+            {"type": "typing", "prompt": "Write a Java declaration storing the text Code in word.", "choices": ["String word = \"Code\";", "string word = \"Code\";", "String word == \"Code\";", "word = \"Code\";"], "answers": ["String word = \"Code\";"], "case_sensitive": true, "explanation": "This declares a String variable and assigns it the quoted text."}
+          ]
+        },
+        {
+          "topic": "Booleans",
+          "story": "The Java beacon checks whether its shield is active. The Guardian learns Java's Boolean values.",
+          "lesson": "Very often in programming, you will need a data type that can only have one of two values, like:\n• YES / NO\n• ON / OFF\n• TRUE / FALSE\nFor this, Java has a boolean data type, which can store true or false.",
+          "examples": ["boolean isJavaFun = true;\nboolean isFishTasty = false;\n\nSystem.out.println(isJavaFun); // outputs true\nSystem.out.println(isFishTasty); // outputs false"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which value is the Java Boolean literal for true?", "options": ["True", "TRUE", "true", "yes"], "answers": ["true"], "case_sensitive": true, "explanation": "Java Boolean literals are lowercase: true and false."},
+            {"type": "fill_blank", "prompt": "boolean shieldOn = ____;", "bank": ["true", "false", "True", "on"], "answers": ["true"], "case_sensitive": true, "explanation": "The lowercase true literal means the shield is on."},
+            {"type": "typing", "prompt": "Write a Java declaration setting active to false.", "choices": ["boolean active = false;", "Boolean active = False;", "bool active = false;", "boolean = active false;"], "answers": ["boolean active = false;"], "case_sensitive": true, "explanation": "boolean is the type, and false is the lowercase Boolean value."}
+          ]
+        },
+        {
+          "topic": "Arrays",
+          "story": "The final Java beacon must hold a whole set of signal colors at once. Byte teaches the Guardian to store them in an array.",
+          "lesson": "Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.\nTo declare an array, define the variable type with square brackets []:",
+          "examples": ["String[] cars;", "String[] cars = {\"Volvo\", \"BMW\", \"Ford\", \"Mazda\"};"],
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which declaration creates an array of Java String values?", "options": ["String[] cars;", "String cars;", "String{} cars;", "cars[] String;"], "answers": ["String[] cars;"], "case_sensitive": true, "explanation": "The square brackets after String declare an array of String values."},
+            {"type": "fill_blank", "prompt": "____[] names = {\"Ada\", \"Byte\"};", "bank": ["String", "int", "boolean", "array"], "answers": ["String"], "case_sensitive": true, "explanation": "String[] declares an array whose values are strings."},
+            {"type": "typing", "prompt": "Declare a String array named colors containing Red and Blue.", "choices": ["String[] colors = {\"Red\", \"Blue\"};", "String colors = {\"Red\", \"Blue\"};", "String[] = colors;", "String colors[] = \"Red\", \"Blue\";"], "answers": ["String[] colors = {\"Red\", \"Blue\"};"], "case_sensitive": true, "explanation": "Use String[] for the array type and braces to initialize its values."}
+          ]
+        }
+      ]
+    },
+    "JavaScript": {
+      "theme": "Neon City",
+      "color": [255, 210, 74],
+      "topics": [
+        {
+          "topic": "Introduction",
+          "story": "The JavaScript world is frozen. Byte asks the Guardian to change HTML content.",
+          "lesson": "One of many JavaScript HTML methods is getElementById().\n\nThe example below \"finds\" an HTML element (with id=\"demo\"), and changes the element content (innerHTML) to \"Hello JavaScript\".",
+          "examples": ["<!DOCTYPE html>\n<html>\n<body>\n\n<h2>What Can JavaScript Do?</h2>\n<p id=\"demo\">JavaScript can change HTML content.</p>\n\n<button type=\"button\"\n onclick='document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\"'>\nClick Me!</button>\n\n</body>\n</html>", "Output:\nWhat Can JavaScript Do?\n\nHello JavaScript!\n\nClick Me!"],
+          "coding": {"prompt": "Replace the highlighted field with the property and text needed to change the demo element.", "starter": "document.getElementById(\"demo\").{{CHANGE_TEXT}}", "checks": ["getElementById", "\"demo\"", "innerHTML", "Hello JavaScript"], "expected_output": "Hello JavaScript"},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which JavaScript method finds an HTML element by id?", "options": ["getElementById()", "querySelectorAll()", "createElement()", "console.log()"], "answers": ["getElementById()"], "case_sensitive": true, "explanation": "getElementById() finds an element by its id attribute."},
+            {"type": "fill_blank", "prompt": "Which property changes an HTML element's content?", "bank": ["innerHTML", "src", "href", "alt"], "answers": ["innerHTML"], "case_sensitive": true, "explanation": "innerHTML changes the HTML content inside an element."},
+            {"type": "typing", "prompt": "Write the method call that finds the element demo.", "choices": ["document.getElementById(\"demo\")", "document.find(\"demo\")", "getElement(\"demo\")", "document.getElementById demo"], "answers": ["document.getElementById(\"demo\")", "document.getElementById('demo')"], "case_sensitive": true, "explanation": "Use document.getElementById() with the element id."}
+          ]
+        },
+        {
+          "topic": "Output",
+          "story": "The JavaScript beacon must display information clearly.",
+          "lesson": "JavaScript can \"display\" data in different ways:\n• Writing into an HTML element, using innerHTML or innerText.\n• Writing into the HTML output using document.write().\n• Writing into an alert box, using window.alert().\n• Writing into the browser console, using console.log().\n\nTo access an HTML element, you can use the document.getElementById() method.\n\nUse the id attribute to identify the HTML element. Then use the innerHTML property to change the HTML content of the HTML element:",
+          "examples": ["<p id=\"demo\"></p>\n\n<script>\n  document.getElementById(\"demo\").innerHTML = \"<h2>Hello World</h2><p>Have a nice day!</p>\";\n</script>", "Output:\nMy Web Page\n\nHello World\n\nHave a Nice Day!"],
+          "coding": {"prompt": "Replace the highlighted field with the text to place inside the demo element.", "starter": "document.getElementById(\"demo\").innerHTML = \"{{TEXT}}\";", "checks": ["getElementById", "\"demo\"", "innerHTML", "Hello World"], "expected_output": "Hello World"},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which JavaScript method can write HTML output?", "options": ["document.write()", "html.write()", "page.write()", "console"] , "answers": ["document.write()"], "case_sensitive": true, "explanation": "document.write() writes HTML output to the document."},
+            {"type": "fill_blank", "prompt": "Which property sets HTML content inside an element?", "bank": ["innerHTML", "innerText", "document", "console"], "answers": ["innerHTML"], "case_sensitive": true, "explanation": "innerHTML sets HTML content inside an element."},
+            {"type": "typing", "prompt": "Type a call that finds an HTML element by id demo.", "choices": ["document.getElementById(\"demo\")", "document.findDemo()", "getId(\"demo\")", "console.log(\"demo\")"], "answers": ["document.getElementById(\"demo\")", "document.getElementById('demo')"], "case_sensitive": true, "explanation": "getElementById() searches for an element using its id."}
+          ]
+        },
+        {
+          "topic": "Syntax",
+          "story": "The JavaScript beacon must follow the rules for writing programs.",
+          "lesson": "Syntax Rules\nSyntax is the set of rules for how programs must be constructed:\n\n// How to Declare variables:\nlet x = 5;\nlet y = 6;\n\n// How to Compute values:\nlet z = x + y;\n\nJavaScript Values\nThe JavaScript syntax defines two types of values:\n• Literals (Fixed values)\n• Variables (Variable values)\n\nJavaScript Literals\nThe most important syntax rules for literals (fixed values) are:",
+          "examples": ["// Numbers are written with or without decimals:\n10.50\n1001\n\n// Strings are written with quotes:\n\"John Doe\"\n'John Doe'", "Output:\nJavaScript Numbers\n\nNumbers can be written with or without decimals:\n10.50\n1001\n\nJavaScript Strings\nStrings can be written with double or single quotes:\n\"John Doe\"\n'John Doe'"],
+          "coding": {"prompt": "Replace the highlighted fields with the variable values and calculation.", "starter": "let x = {{X_VALUE}};\nlet y = {{Y_VALUE}};\nlet z = {{CALCULATION}};", "checks": ["let x", "5", "let y", "6", "let z", "x", "y", "+"], "expected_output": "z is 11"},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which JavaScript keyword declares a variable?", "options": ["let", "def", "int", "varable"], "answers": ["let"], "case_sensitive": true, "explanation": "let declares a block-scoped JavaScript variable."},
+            {"type": "fill_blank", "prompt": "How are JavaScript fixed text values written?", "bank": ["With quotes", "With brackets", "Without a type", "With a colon"], "answers": ["With quotes"], "case_sensitive": true, "explanation": "JavaScript string literals are written with quotation marks."},
+            {"type": "typing", "prompt": "Type a JavaScript declaration storing 5 in x.", "choices": ["let x = 5;", "x let 5;", "int x = 5;", "let x 5;"], "answers": ["let x = 5;", "let x=5;", "var x = 5;", "const x = 5;"], "case_sensitive": true, "explanation": "Use let, a name, =, and the value."}
+          ]
+        },
+        {
+          "topic": "If",
+          "story": "The JavaScript beacon must make decisions using conditions.",
+          "lesson": "The JavaScript If Statement\nUse the JavaScript if statement to execute a block of code when a condition is true.",
+          "examples": ["Syntax:\nif (condition) {\n  // block of code to be executed if\n  // the condition is true\n}\n\nExample:\nlet age = 25;\nif (age < 18) {\n  greeting = \"Good day\";\n}\nlet text = \"Good morning\";\nif (age > 18) {\n  greeting = \"Good evening\";\n}\n\nExamples:\nif (age < 18) {\n  if (text > 16) {\n    text = \"Good day\";\n  }\n}\n\nif (age >= 18) {\n  if (text >= 18) {\n    text = \"Good evening\";\n  }\n}"],
+          "coding": {"prompt": "Replace the highlighted fields with the condition and greeting assignment.", "starter": "let age = 20;\nlet greeting = \"\";\n\nif ({{CONDITION}}) {\n  greeting = {{GREETING}};\n}", "checks": ["age", ">=", "18", "greeting", "Good evening"], "expected_output": "greeting is Good evening"},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "When does an if statement execute its code block?", "options": ["When the condition is true", "When the condition is false", "Every time a page closes", "Only after a loop ends"], "answers": ["When the condition is true"], "case_sensitive": true, "explanation": "The code inside an if block runs when the condition is true."},
+            {"type": "fill_blank", "prompt": "What comparison operator means greater than or equal to?", "bank": [">=", ">", "<=", "==="], "answers": [">="], "case_sensitive": true, "explanation": ">= checks whether a value is greater than or equal."},
+            {"type": "typing", "prompt": "Type the JavaScript beginning of an if statement checking age >= 18.", "choices": ["if (age >= 18)", "if age >= 18", "check (age >= 18)", "when (age >= 18)"], "answers": ["if (age >= 18)", "if(age >= 18)", "if (age>=18)", "if(age>=18)"], "case_sensitive": true, "explanation": "JavaScript uses if followed by parentheses containing the condition."}
+          ]
+        },
+        {
+          "topic": "Loops",
+          "story": "The JavaScript beacon repeats a task several times. Byte explains loops.",
+          "lesson": "Loops are handy, if you want to run the same code over and over again, each time with a different value.\n\nOften this is the case when working with arrays:",
+          "examples": ["Instead of writing:\ntext += cars[0] + \"<br>\";\ntext += cars[1] + \"<br>\";\ntext += cars[2] + \"<br>\";\ntext += cars[3] + \"<br>\";\ntext += cars[4] + \"<br>\";\ntext += cars[5] + \"<br>\";", "You can write:\nfor (let i = 0; i < cars.length; i++) {\n  text += cars[i] + \"<br>\";\n}"],
+          "coding": {"prompt": "Replace the highlighted fields with the loop limit and array access.", "starter": "for (let i = 0; i < {{ARRAY_LIMIT}}; i++) {\n  text += {{ARRAY_ITEM}};\n}", "checks": ["for", "let i", "i <", "cars.length", "i++", "cars[i]"], "expected_output": "Each cars array item is processed once."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "When are loops especially useful?", "options": ["When repeating work over array values", "When there is only one fixed text value", "When CSS has no styles", "When a page has no HTML"], "answers": ["When repeating work over array values"], "case_sensitive": true, "explanation": "Loops repeatedly process values such as array items."},
+            {"type": "fill_blank", "prompt": "Which expression accesses the i-th item in cars?", "bank": ["cars[i]", "cars.i", "cars(i)", "i.cars"], "answers": ["cars[i]"], "case_sensitive": true, "explanation": "Square brackets access an array item by index."},
+            {"type": "typing", "prompt": "Type a loop condition that checks i against cars.length.", "choices": ["i < cars.length", "i <= cars.length", "i == cars.length", "cars.length + i"], "answers": ["i < cars.length"], "case_sensitive": true, "explanation": "The loop runs while i is less than the array length."}
+          ]
+        }
+      ]
+    },
+    "HTML": {
+      "theme": "Kingdom Construction Site",
+      "color": [255, 122, 138],
+      "topics": [
+        {
+          "topic": "Introduction",
+          "story": "The HTML world has lost its map. Byte needs the Guardian to rebuild the page structure.",
+          "lesson": "HTML is the standard markup language for creating Web pages.\n• HTML stands for Hyper Text Markup Language\n• HTML describes the structure of a Web page\n• HTML consists of a series of elements\n• HTML elements tell the browser how to display the content\n• HTML elements label pieces of content such as a heading, \"this is a paragraph\", \"this is a link\", etc.\n\nThe <!DOCTYPE html> declaration defines that this document is an HTML5 document.\nThe <html> element is the root element of an HTML page.\nThe <head> element contains meta information about the HTML page.\nThe <title> element specifies a title for the HTML page.\nThe <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, and lists.\nThe <h1> element defines a large heading.\nThe <p> element defines a paragraph.",
+          "examples": ["<!DOCTYPE html>\n<html>\n<head>\n<title>Page Title</title>\n</head>\n<body>\n\n<h1>My First Heading</h1>\n<p>My first paragraph.</p>\n\n</body>\n</html>", "Output:\nMy First Heading\n\nMy first paragraph."],
+          "coding": {"prompt": "Create a complete HTML page. Replace only the highlighted fields with a page title, heading, and paragraph.", "starter": "<!DOCTYPE html>\n<html>\n<head>\n  <title>{{TITLE}}</title>\n</head>\n<body>\n  <h1>{{HEADING}}</h1>\n  <p>{{PARAGRAPH}}</p>\n</body>\n</html>", "checks": ["<!DOCTYPE html>", "<html", "<head", "<title", "<body", "<h1", "<p"], "expected_output": "A page containing a heading and paragraph."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "What is HTML?", "options": ["A standard markup language for creating Web pages", "A database system", "An operating system", "A programming language for hardware"], "answers": ["A standard markup language for creating Web pages"], "case_sensitive": false, "explanation": "HTML is the standard markup language for creating Web pages."},
+            {"type": "fill_blank", "prompt": "Which declaration defines an HTML5 document?", "bank": ["<!DOCTYPE html>", "<html>", "<head>", "<body>"], "answers": ["<!DOCTYPE html>"], "case_sensitive": false, "explanation": "<!DOCTYPE html> declares an HTML5 document."},
+            {"type": "typing", "prompt": "Type the HTML tag that defines a heading.", "choices": ["<h1>", "<p>", "<body>", "<title>"], "answers": ["<h1>"], "case_sensitive": false, "explanation": "<h1> defines a large heading."}
+          ]
+        },
+        {
+          "topic": "Images",
+          "story": "The HTML island is dark without its picture. Byte shows how to add an image with helpful alternative text.",
+          "lesson": "The HTML <img> tag is used to embed an image in a web page.\n\nImages are not technically inserted into a web page; images are linked to web pages. The <img> tag creates a holding space for the referenced image.\n\nThe <img> tag is empty. It contains attributes only, and does not have a closing tag:\n• alt - Specifies an alternate text for the image\n• src - Specifies the path to the image",
+          "examples": ["<img src=\"pic_trulli.jpg\" alt=\"Italian Trulli\">", "Output:\n<img src=\"pic_trulli.jpg\" alt=\"Italian Trulli\">"],
+          "coding": {"prompt": "Replace the highlighted fields with the image file name and alternate text.", "starter": "<img src=\"{{IMAGE_FILE}}\" alt=\"{{ALT_TEXT}}\">", "checks": ["<img", "src=", "pic_trulli.jpg", "alt=", "Italian Trulli"], "expected_output": "The image is shown with meaningful alternate text."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which HTML tag embeds an image?", "options": ["<img>", "<image>", "<src>", "<picture>"], "answers": ["<img>"], "case_sensitive": false, "explanation": "The <img> tag is used to embed an image."},
+            {"type": "fill_blank", "prompt": "Which attribute specifies the path to an image?", "bank": ["src", "alt", "href", "link"], "answers": ["src"], "case_sensitive": false, "explanation": "The src attribute specifies the image path."},
+            {"type": "typing", "prompt": "Type an img tag for pic_trulli.jpg with alt text Italian Trulli.", "choices": ["<img src=\"pic_trulli.jpg\" alt=\"Italian Trulli\">", "<img src=\"pic_trulli.jpg\">", "<a href=\"pic_trulli.jpg\">", "<img alt=\"Italian Trulli\">"], "answers": ["<img src=\"pic_trulli.jpg\" alt=\"Italian Trulli\">", "<img alt=\"Italian Trulli\" src=\"pic_trulli.jpg\">"], "case_sensitive": false, "explanation": "Use src for the path and alt for alternate text."}
+          ]
+        },
+        {
+          "topic": "Tables",
+          "story": "The HTML world has lost its map. Byte needs the Guardian to rebuild the map as a table.",
+          "lesson": "HTML tables allow web developers to arrange data into rows and columns.\nA <table> element defines the table container.\n• <tr> - defines a table row\n• <th> - defines a table header cell\n• <td> - defines a standard data cell",
+          "examples": ["<table>\n  <tr>\n    <th>Company</th>\n    <th>Contact</th>\n    <th>Country</th>\n  </tr>\n  <tr>\n    <td>Alfreds Futterkiste</td>\n    <td>Maria Anders</td>\n    <td>Germany</td>\n  </tr>\n  <tr>\n    <td>Centro comercial Moctezuma</td>\n    <td>Francisco Chang</td>\n    <td>Mexico</td>\n  </tr>\n</table>", "Output:\nCompany                 Contact           Country\nAlfreds Futterkiste     Maria Anders      Germany\nCentro comercial ...    Francisco Chang   Mexico"],
+          "coding": {"prompt": "Replace the highlighted fields to add table header and data text.", "starter": "<table>\n  <tr>\n    <th>{{HEADER}}</th>\n  </tr>\n  <tr>\n    <td>{{DATA}}</td>\n  </tr>\n</table>", "checks": ["<table", "<tr", "<th", "<td", "</table>"], "expected_output": "A table with a header and a data row."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which HTML tag defines a table row?", "options": ["<tr>", "<td>", "<th>", "<table>"], "answers": ["<tr>"], "case_sensitive": false, "explanation": "<tr> defines a table row."},
+            {"type": "fill_blank", "prompt": "Which tag defines a table header cell?", "bank": ["<th>", "<td>", "<tr>", "<table>"], "answers": ["<th>"], "case_sensitive": false, "explanation": "<th> defines a table header cell."},
+            {"type": "typing", "prompt": "Type the HTML tag that defines a standard table data cell.", "choices": ["<td>", "<tr>", "<th>", "<table>"], "answers": ["<td>"], "case_sensitive": false, "explanation": "<td> defines a standard data cell."}
+          ]
+        },
+        {
+          "topic": "Hyperlinks",
+          "story": "The map's roads between islands are missing. The Guardian reconnects them with HTML links.",
+          "lesson": "HTML links are hyperlinks.\nYou can click on a link and jump to another document.\n\nLinks are found in nearly all Web pages. Links allow users to click their way from page to page.\n\nWhen you move the mouse over a link, the mouse arrow will turn into a little hand.\n\nHTML Links - Syntax\nThe HTML <a> tag defines a hyperlink. It has the following syntax:",
+          "examples": ["<a href=\"url\">link text</a>", "Example:\n<a href=\"https://www.w3schools.com/\">Visit W3Schools.com!</a>", "Output:\nVisit W3Schools.com!"],
+          "coding": {"prompt": "Replace the highlighted fields with the W3Schools address and link text.", "starter": "<a href=\"{{URL}}\">{{LINK_TEXT}}</a>", "checks": ["<a", "href=", "w3schools.com", "Visit W3Schools", "</a>"], "expected_output": "A clickable W3Schools link."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which HTML tag defines a hyperlink?", "options": ["<a>", "<link>", "<href>", "<url>"], "answers": ["<a>"], "case_sensitive": false, "explanation": "The <a> tag defines a hyperlink."},
+            {"type": "fill_blank", "prompt": "Which attribute contains the link destination?", "bank": ["href", "src", "alt", "target"], "answers": ["href"], "case_sensitive": false, "explanation": "The href attribute specifies the link destination."},
+            {"type": "typing", "prompt": "Type a link to W3Schools.", "choices": ["<a href=\"https://www.w3schools.com/\">Visit W3Schools.com!</a>", "<img src=\"https://www.w3schools.com/\">", "<link href=\"https://www.w3schools.com/\">", "<a src=\"https://www.w3schools.com/\">"], "answers": ["<a href=\"https://www.w3schools.com/\">Visit W3Schools.com!</a>"], "case_sensitive": false, "explanation": "Use the <a> tag and its href attribute to create a link."}
+          ]
+        },
+        {
+          "topic": "Colors",
+          "story": "The HTML page needs clear colors for headings and text. Byte teaches the Guardian how HTML colors are specified.",
+          "lesson": "HTML colors are specified with predefined color names, or with RGB, HEX, HSL, RGBA, or HSLA values.\n\nColor Names\nIn HTML, a color can be specified by using a color name.\n\nTomato, Orange, DodgerBlue, MediumSeaGreen\nGray, SlateBlue, Violet, LightGray",
+          "examples": ["<h1 style=\"background-color:DodgerBlue;\">Hello World</h1>\n<p style=\"background-color:Tomato;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>", "Output:\nHello World\nLorem ipsum dolor sit amet, consectetuer adipiscing elit."],
+          "coding": {"prompt": "Replace the highlighted fields with the heading style and heading text.", "starter": "<h1 style=\"{{STYLE}}\">{{HEADING}}</h1>", "checks": ["<h1", "style=", "background-color", "DodgerBlue", "Hello World"], "expected_output": "Hello World appears with a DodgerBlue background."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which ways can HTML colors be specified?", "options": ["Predefined names, RGB, HEX, HSL, RGBA, or HSLA", "Only hexadecimal values", "Only image files", "Only JavaScript variables"], "answers": ["Predefined names, RGB, HEX, HSL, RGBA, or HSLA"], "case_sensitive": false, "explanation": "HTML supports color names and numeric color formats."},
+            {"type": "fill_blank", "prompt": "Which CSS style property sets a background color?", "bank": ["background-color", "color", "font-size", "border"], "answers": ["background-color"], "case_sensitive": false, "explanation": "The background-color property sets an element's background color."},
+            {"type": "typing", "prompt": "Type a heading with a DodgerBlue background.", "choices": ["<h1 style=\"background-color:DodgerBlue;\">Hello World</h1>", "<h1 style=\"color:DodgerBlue;\">Hello World</h1>", "<p style=\"background-color:DodgerBlue;\">", "<h1 background=\"DodgerBlue\">Hello World</h1>"], "answers": ["<h1 style=\"background-color:DodgerBlue;\">Hello World</h1>"], "case_sensitive": false, "explanation": "The style attribute applies background-color to the heading."}
+          ]
+        }
+      ]
+    },
+    "CSS": {
+      "theme": "Kingdom Paint Studio",
+      "color": [155, 110, 255],
+      "topics": [
+        {
+          "topic": "Introduction",
+          "story": "The HTML map is rebuilt, but it needs a clear style. Byte asks the Guardian to learn CSS.",
+          "lesson": "CSS is the language we use to style a Web page.\n• CSS stands for Cascading Style Sheets\n• CSS describes how HTML elements are to be displayed on screen, paper, or in other media\n• CSS saves a lot of work. It can control the layout of multiple web pages at once\n• External stylesheets are stored in CSS files",
+          "examples": ["body {\n  background-color: lightblue;\n}\n\nh1 {\n  color: white;\n  text-align: center;\n}\n\np {\n  font-family: verdana;\n  font-size: 20px;\n}", "Output:\nMy First CSS Example\n\nHello Everyone."],
+          "coding": {"prompt": "Replace the highlighted fields with the background and text alignment declarations.", "starter": "body {\n  background-color: {{BACKGROUND_COLOR}};\n}\n\nh1 {\n  text-align: {{TEXT_ALIGN}};\n}", "checks": ["background-color", "text-align", "center"], "expected_output": "A lightblue page with centered heading text."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "What does CSS stand for?", "options": ["Cascading Style Sheets", "Computer Styling System", "Creative Style Syntax", "Code Styling Sheets"], "answers": ["Cascading Style Sheets"], "case_sensitive": false, "explanation": "CSS stands for Cascading Style Sheets."},
+            {"type": "fill_blank", "prompt": "Which property sets an element's background color?", "bank": ["background-color", "text-align", "font-size", "font-family"], "answers": ["background-color"], "case_sensitive": false, "explanation": "background-color sets the background color."},
+            {"type": "typing", "prompt": "Type a CSS declaration that centers text.", "choices": ["text-align: center;", "align: center;", "h1: center;", "font-align: center;"], "answers": ["text-align: center;"], "case_sensitive": false, "explanation": "The text-align property can center text."}
+          ]
+        },
+        {
+          "topic": "Margins",
+          "story": "The style panel needs enough space around elements. Byte teaches the Guardian how CSS margins work.",
+          "lesson": "The CSS margin properties are used to create space around elements, outside of any defined borders.\n\nMargins define the distance between an element's border and the surrounding elements.\n\nWith CSS, you have full control over the margins. CSS has properties for setting the margin for each individual side of an element (top, right, bottom, and left).\n\nCSS has properties for specifying the margin for each side of an element:\n• margin-top - sets the top margin of an element\n• margin-right - sets the right margin of an element\n• margin-bottom - sets the bottom margin of an element\n• margin-left - sets the left margin of an element\n\nAll the margin properties can have the following values:\n• auto - the browser calculates the margin\n• length - specifies a margin in px, pt, cm, etc.\n• % - specifies a margin in % of the width of the containing element\n• inherit - specifies that the margin should be inherited from the parent element",
+          "examples": ["p {\n  margin-top: 100px;\n  margin-bottom: 100px;\n  margin-right: 150px;\n  margin-left: 80px;\n}", "Output:\nThis is a paragraph.\nThis is a paragraph.\nThis is a paragraph.\nThis is a paragraph."],
+          "coding": {"prompt": "Replace the highlighted fields with the top and left margin values.", "starter": "p {\n  margin-top: {{TOP_MARGIN}};\n  margin-left: {{LEFT_MARGIN}};\n}", "checks": ["margin-top", "100px", "margin-left", "80px"], "expected_output": "Paragraphs spaced 100px from the top and 80px from the left."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Where does CSS margin create space?", "options": ["Outside an element's border", "Inside an element's border", "Inside a paragraph only", "Only around text images"], "answers": ["Outside an element's border"], "case_sensitive": false, "explanation": "Margins create space outside an element's border."},
+            {"type": "fill_blank", "prompt": "Which property sets the right margin?", "bank": ["margin-right", "margin-left", "margin-top", "margin-bottom"], "answers": ["margin-right"], "case_sensitive": false, "explanation": "margin-right sets the right margin."},
+            {"type": "typing", "prompt": "Type a declaration for a 100px top margin.", "choices": ["margin-top: 100px;", "margin: 100px;", "padding-top: 100px;", "top-margin: 100px;"], "answers": ["margin-top: 100px;"], "case_sensitive": false, "explanation": "margin-top sets the top margin."}
+          ]
+        },
+        {
+          "topic": "Fonts",
+          "story": "The design map needs readable text. Byte explains CSS font properties.",
+          "lesson": "Font Selection is Important\n\nChoosing the right font has a huge impact on how the readers experience a website.\n\nThe right font can create a strong identity for your brand.\n\nChoosing a font that is easy to read is important. It is also important to choose a good color and size for your font.\n\nThe CSS font-family Property\nThe CSS font-family property specifies the font for an element.\n\nThe font-family property should hold several font names as a \"fallback\" system. If the browser does not support the first font, it tries the next font. The font name should be separated with a comma.\n\nAlways start with the font you want, and end with a generic family, to let the browser pick a similar font in the generic family if no other fonts are available.",
+          "examples": ["p {\n  font-family: \"Times New Roman\", Times, serif;\n}", "Output:\nCSS font-family\n\nThis is a paragraph, shown in the Times New Roman font.\nThis is a paragraph, shown in the Times New Roman font.\nThis is a paragraph, shown in the Times New Roman font."],
+          "coding": {"prompt": "Replace the highlighted field with the complete font-family declaration value.", "starter": "p {\n  font-family: {{FONT_FAMILY}};\n}", "checks": ["font-family", "Times New Roman", "Times", "serif"], "expected_output": "Paragraph text uses Times New Roman or a similar serif fallback."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which CSS property specifies an element's font?", "options": ["font-family", "text-align", "font-size", "margin"], "answers": ["font-family"], "case_sensitive": false, "explanation": "The font-family property specifies the font."},
+            {"type": "fill_blank", "prompt": "How should font names be separated in font-family?", "bank": ["A comma", "A semicolon", "A plus sign", "A slash"], "answers": ["A comma"], "case_sensitive": false, "explanation": "Font names should be separated with commas."},
+            {"type": "typing", "prompt": "Type a font-family declaration for Times New Roman.", "choices": ["font-family: \"Times New Roman\", Times, serif;", "font-family = Times New Roman;", "font: \"Times New Roman\";", "family-font: Times;"], "answers": ["font-family: \"Times New Roman\", Times, serif;"], "case_sensitive": false, "explanation": "A font-family declaration lists the preferred font and fallbacks."}
+          ]
+        },
+        {
+          "topic": "Icons",
+          "story": "The interface needs visual symbols. Byte explains icon libraries.",
+          "lesson": "Icons can easily be added to your HTML page, by using an icon library.\n\nJust add the name of the icon class to any inline HTML element (<i> or <span>). \n\nIcons from icon libraries are scalable vectors that can be customized with CSS (size, color, shadow, etc.)",
+          "examples": ["<i class=\"fa-solid fa-house\"></i>\n<span class=\"fa-solid fa-house\"></span>", "Output:\nFont Awesome icon library\n\nSome Font Awesome icons:\nfas fa-cloud\nfas fa-heart\nfas fa-car\nfas fa-file\nfas fa-bars"],
+          "coding": {"prompt": "Replace the highlighted field with the Font Awesome icon classes.", "starter": "<i class=\"{{ICON_CLASSES}}\"></i>", "checks": ["<i", "fa-solid", "fa-house"], "expected_output": "A house icon appears in the page."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "How can icons be added to an HTML page?", "options": ["By using an icon library", "By only using plain text", "By deleting CSS", "By using only tables"], "answers": ["By using an icon library"], "case_sensitive": false, "explanation": "Icon libraries add icons to HTML elements."},
+            {"type": "fill_blank", "prompt": "Which inline element can hold an icon class?", "bank": ["<i>", "<table>", "<body>", "<h1>"], "answers": ["<i>"], "case_sensitive": false, "explanation": "The <i> element is commonly used for icon classes."},
+            {"type": "typing", "prompt": "Type a house icon element with Font Awesome classes.", "choices": ["<i class=\"fa-solid fa-house\"></i>", "<i src=\"house\"></i>", "<span house></span>", "<img icon=\"house\">"], "answers": ["<i class=\"fa-solid fa-house\"></i>"], "case_sensitive": false, "explanation": "Icon library classes are placed in the class attribute."}
+          ]
+        },
+        {
+          "topic": "Navigation Bars",
+          "story": "The sections of the map need a navigation system. Byte explains HTML navigation bars styled with CSS.",
+          "lesson": "A navigation bar is an important component of web design.\n\nNavigation bars help users to easily navigate between different sections of a website.\n\nNavigation bars are typically built with HTML list elements (<ul> and <li>), and then styled with CSS to get a nice look.\n\nA navigation bar is typically located at the top or at the side of a webpage.",
+          "examples": ["<ul>\n  <li><a href=\"default.asp\">Home</a></li>\n  <li><a href=\"news.asp\">News</a></li>\n  <li><a href=\"contact.asp\">Contact</a></li>\n  <li><a href=\"about.asp\">About</a></li>\n</ul>", "Output:\nBasic HTML code for Navbar\n• Home\n• News\n• Contact\n• About\n\nNote: We use href=\"/\" for links. In a real website this would be URLs."],
+          "coding": {"prompt": "Replace the highlighted fields with a list item and Home link.", "starter": "<ul>\n  <li><a href=\"{{URL}}\">{{LINK_TEXT}}</a></li>\n</ul>", "checks": ["<ul", "<li", "<a", "href=", "Home"], "expected_output": "A navigation list containing a Home link."},
+          "questions": [
+            {"type": "multiple_choice", "prompt": "Which HTML elements commonly build a navigation bar?", "options": ["<ul> and <li>", "<table> and <td>", "<img> and <src>", "<h1> and <p>"], "answers": ["<ul> and <li>"], "case_sensitive": false, "explanation": "Navigation bars are commonly built with unordered lists and list items."},
+            {"type": "fill_blank", "prompt": "Which element defines a navigation list item?", "bank": ["<li>", "<ul>", "<nav>", "<a>"], "answers": ["<li>"], "case_sensitive": false, "explanation": "<li> defines a list item."},
+            {"type": "typing", "prompt": "Type a list item containing a Home link.", "choices": ["<li><a href=\"default.asp\">Home</a></li>", "<li><img src=\"Home\"></li>", "<ul><a>Home</a></ul>", "<li href=\"Home\">Home</li>"], "answers": ["<li><a href=\"default.asp\">Home</a></li>"], "case_sensitive": false, "explanation": "A list item can contain an anchor element."}
+          ]
+        }
+      ]
+    }
+  }
+}
